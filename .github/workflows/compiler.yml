@@ -16,4 +16,4 @@ jobs:
 
     services:
       dind:
-        image: 19.03-dind
+        image: docker:19.03-dind
