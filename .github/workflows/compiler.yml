@@ -1,0 +1,19 @@
+name: Docker image build with latest compiler version
+
+on:
+  push:
+    branches: 
+      - feature/*
+
+jobs:
+  build-gcc:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: docker build -t gcc:latest -f Docker/Gcc/Dockerfile Docker
+
+    services:
+      dind:
+        image: 19.03-dind
